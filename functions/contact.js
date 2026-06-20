@@ -22,3 +22,4 @@ export async function onRequestPost({ request, env }) {
     ? Response.redirect("/index.html", 302)
     : new Response("Something went wrong", { status: 500 });
 }
+ 
