@@ -19,8 +19,13 @@
       <label>Message:</label><br>
       <textarea name="message" rows="5" cols="30" required></textarea>
     </p>
+
+    <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY" style="display: inline-block; margin: 10px 0;"></div>
+
     <button type="submit">Send</button>
   </form>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </body>
 </html>
