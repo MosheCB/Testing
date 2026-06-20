@@ -10,7 +10,7 @@ export async function onRequestPost({ request, env }) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Contact Form <contact@moshebrownsteinlicsw.com>",
       to: "moshebrownsteinlcsw@gmail.com",
       subject: `New message from ${name}`,
       text: `From: ${name} (${email})\n\n${message}`
