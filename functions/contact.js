@@ -3,7 +3,6 @@ export async function onRequestPost({ request, env }) {
   const name = formData.get("name");
   const email = formData.get("email");
   const message = formData.get("message");
-
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -18,14 +17,10 @@ export async function onRequestPost({ request, env }) {
     })
   });
 
-  return res.ok
-    ? Response.redirect("/index.html", 302)
-    : new Response("Something went wrong", { status: 500 });
-}
- 
-if (res.ok) {
+  if (res.ok) {
     return Response.redirect("/index.html", 302);
   } else {
     const errorText = await res.text();
     return new Response("Resend error: " + errorText, { status: 500 });
   }
+}
