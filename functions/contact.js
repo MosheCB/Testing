@@ -20,7 +20,8 @@ export async function onRequestPost({ request, env }) {
     });
 
     if (res.ok) {
-      return Response.redirect("/index.html", 302);
+  return Response.redirect("https://moshebrownsteinlicsw.com/index.html", 302);
+}
     } else {
       const errorText = await res.text();
       return new Response("Resend error: " + errorText, { status: 500 });
