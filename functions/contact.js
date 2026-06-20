@@ -23,3 +23,9 @@ export async function onRequestPost({ request, env }) {
     : new Response("Something went wrong", { status: 500 });
 }
  
+if (res.ok) {
+    return Response.redirect("/index.html", 302);
+  } else {
+    const errorText = await res.text();
+    return new Response("Resend error: " + errorText, { status: 500 });
+  }
