@@ -1,6 +1,19 @@
 export async function onRequestPost({ request, env }) {
   try {
     const formData = await request.formData();
+    const token = formData.get("cf-turnstile-response");
+
+    const verify = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${env.TURNSTILE_SECRET_KEY}&response=${token}`
+    });
+    const verifyData = await verify.json();
+
+    if (!verifyData.success) {
+      return new Response("Bot check failed", { status: 403 });
+    }
+
     const name = formData.get("name");
     const email = formData.get("email");
     const message = formData.get("message");
