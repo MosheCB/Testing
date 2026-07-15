@@ -1,92 +1,114 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
-<BaseLayout title="Contact Me">
-  <h1>Contact Me</h1>
-  
-  <form action="/contact" method="POST" class="contact-form">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+  </head>
+  <body>
+    <Navigation currentPage="/contact" />
+    
+    <main>
+      <h1>Contact Me</h1>
+      
+      <form action="/contact" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
 
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-    </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
 
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" cols="30" required></textarea>
-    </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" cols="30" required></textarea>
+        </div>
 
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAADoIAyjKg_wufeNO"></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADoIAyjKg_wufeNO"></div>
 
-    <button type="submit">Send</button>
-  </form>
+        <button type="submit">Send</button>
+      </form>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    </main>
 
-  <style>
-    h1 {
-      text-align: center;
-      color: #76a63d;
-    }
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
 
-    .contact-form {
-      max-width: 500px;
-      margin: 40px auto;
-      text-align: center;
-    }
+      main {
+        padding: 2rem;
+      }
 
-    .form-group {
-      margin: 20px 0;
-      text-align: left;
-    }
+      h1 {
+        text-align: center;
+        color: #76a63d;
+      }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #3a3530;
-      font-weight: bold;
-    }
+      .contact-form {
+        max-width: 500px;
+        margin: 40px auto;
+        text-align: center;
+      }
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: Arial, sans-serif;
-      box-sizing: border-box;
-    }
+      .form-group {
+        margin: 20px 0;
+        text-align: left;
+      }
 
-    input:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #76a63d;
-      box-shadow: 0 0 5px rgba(118, 166, 61, 0.3);
-    }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #3a3530;
+        font-weight: bold;
+      }
 
-    .cf-turnstile {
-      display: inline-block;
-      margin: 20px 0;
-    }
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+      }
 
-    button {
-      background-color: #76a63d;
-      color: white;
-      padding: 10px 30px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #76a63d;
+        box-shadow: 0 0 5px rgba(118, 166, 61, 0.3);
+      }
 
-    button:hover {
-      background-color: #629930;
-    }
-  </style>
-</BaseLayout>
+      .cf-turnstile {
+        display: inline-block;
+        margin: 20px 0;
+      }
+
+      button {
+        background-color: #76a63d;
+        color: white;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #629930;
+      }
+    </style>
+  </body>
+</html>
